@@ -3,15 +3,15 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "crawl4ai-scraper"
+name = "openpull"
 version = "0.1.0"
-description = "Flexible web scraper with LLM-powered data extraction using crawl4ai and Gemini"
+description = "Pull structured data from any website using LLM-powered extraction"
 readme = "README.md"
 license = "MIT"
 authors = [
     { name = "Federico De Ponte", email = "federico@scaile.tech" }
 ]
-keywords = ["web-scraping", "llm", "gemini", "crawl4ai", "data-extraction", "ai"]
+keywords = ["web-scraping", "llm", "gemini", "crawl4ai", "data-extraction", "ai", "scraper"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -41,12 +41,12 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/federicodeponte/crawl4ai-scraper"
-Repository = "https://github.com/federicodeponte/crawl4ai-scraper"
-Issues = "https://github.com/federicodeponte/crawl4ai-scraper/issues"
+Homepage = "https://github.com/federicodeponte/openpull"
+Repository = "https://github.com/federicodeponte/openpull"
+Issues = "https://github.com/federicodeponte/openpull/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["crawl4ai_scraper"]
+packages = ["openpull"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

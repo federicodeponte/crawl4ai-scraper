@@ -1,7 +1,7 @@
 """Tests for FlexibleScraper."""
 
 import pytest
-from crawl4ai_scraper import FlexibleScraper, FlexibleScraperError
+from openpull import FlexibleScraper, FlexibleScraperError
 
 
 def test_init_without_api_key():

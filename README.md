@@ -1,32 +1,32 @@
-# crawl4ai-scraper
+# openpull
 
-A flexible web scraper with LLM-powered data extraction using [crawl4ai](https://github.com/unclecode/crawl4ai) and Google Gemini.
+Pull structured data from any website using LLM-powered extraction.
+
+Built on [crawl4ai](https://github.com/unclecode/crawl4ai) + Google Gemini.
 
 ## Features
 
-- **Async web scraping** with Playwright/Chromium
-- **LLM-based extraction** using Gemini 2.5 Flash
-- **Structured output** with JSON schema validation
+- **Pull data from any website** - handles JavaScript-rendered pages
+- **LLM-powered extraction** - describe what you want in plain English
+- **Structured output** - get clean JSON with optional schema validation
 - **Multi-page discovery** - automatically finds and scrapes relevant pages
 - **Link extraction** - get internal/external links from any page
 
 ## Installation
 
 ```bash
-pip install crawl4ai-scraper
+pip install openpull
 ```
 
 Or install from source:
 
 ```bash
-git clone https://github.com/federicodeponte/crawl4ai-scraper.git
-cd crawl4ai-scraper
+git clone https://github.com/federicodeponte/openpull.git
+cd openpull
 pip install -e .
 ```
 
 ### Prerequisites
-
-Install Playwright browsers:
 
 ```bash
 playwright install chromium
@@ -36,7 +36,7 @@ playwright install chromium
 
 ```python
 import asyncio
-from crawl4ai_scraper import FlexibleScraper
+from openpull import FlexibleScraper
 
 async def main():
     scraper = FlexibleScraper(api_key="your-gemini-api-key")
@@ -50,7 +50,7 @@ async def main():
 asyncio.run(main())
 ```
 
-## Usage Examples
+## Examples
 
 ### Basic Extraction
 
@@ -62,7 +62,7 @@ result = await scraper.scrape(
 # {'company_name': 'Acme Inc', 'tagline': '...', 'products': [...]}
 ```
 
-### Structured Schema
+### With JSON Schema
 
 ```python
 schema = {
@@ -108,7 +108,7 @@ result = await scraper.scrape(
 ```python
 result = await scraper.scrape(
     url="https://news.ycombinator.com",
-    prompt="",  # Not needed for link extraction
+    prompt="",
     extract_links=True,
 )
 # {'links': [...], 'internal_links': [...], 'external_links': [...], 'total_links': 123}
@@ -118,16 +118,16 @@ result = await scraper.scrape(
 
 ### `FlexibleScraper(api_key: str)`
 
-Initialize the scraper with your Gemini API key.
+Initialize with your Gemini API key.
 
 ### `scrape(url, prompt, **kwargs) -> dict`
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `url` | str | required | URL to scrape |
-| `prompt` | str | required | What to extract from the page |
+| `prompt` | str | required | What to extract (plain English) |
 | `schema` | dict | None | JSON schema for structured output |
-| `max_pages` | int | 1 | Max pages to scrape (with auto_discover) |
+| `max_pages` | int | 1 | Max pages to scrape |
 | `timeout` | int | 30 | Request timeout in seconds |
 | `extract_links` | bool | False | Only extract links, skip LLM |
 | `auto_discover_pages` | bool | False | Auto-discover relevant pages |
@@ -138,33 +138,23 @@ Initialize the scraper with your Gemini API key.
 GEMINI_API_KEY=your-api-key-here
 ```
 
-Or pass directly to the constructor.
-
 ## Development
 
 ```bash
-# Clone the repo
-git clone https://github.com/federicodeponte/crawl4ai-scraper.git
-cd crawl4ai-scraper
-
-# Create virtual environment
+git clone https://github.com/federicodeponte/openpull.git
+cd openpull
 python -m venv .venv
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-
-# Install dev dependencies
+source .venv/bin/activate
 pip install -e ".[dev]"
-
-# Run tests
 pytest
 ```
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT - see [LICENSE](LICENSE)
 
 ## Credits
 
-Built with:
-- [crawl4ai](https://github.com/unclecode/crawl4ai) - Async web crawler
-- [Google Gemini](https://ai.google.dev/) - LLM for extraction
-- [Playwright](https://playwright.dev/) - Browser automation
+- [crawl4ai](https://github.com/unclecode/crawl4ai) - async web crawler
+- [Google Gemini](https://ai.google.dev/) - LLM extraction
+- [Playwright](https://playwright.dev/) - browser automation

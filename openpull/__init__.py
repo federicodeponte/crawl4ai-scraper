@@ -1,4 +1,4 @@
-"""crawl4ai-scraper: Flexible web scraper with LLM-powered data extraction."""
+"""openpull: Pull structured data from any website using LLM extraction."""
 
 from .scraper import FlexibleScraper, FlexibleScraperError
 

@@ -1,4 +1,4 @@
-# Contributing to crawl4ai-scraper
+# Contributing to openpull
 
 Thanks for your interest in contributing! This document outlines how to get started.
 
@@ -6,8 +6,8 @@ Thanks for your interest in contributing! This document outlines how to get star
 
 1. Fork and clone the repo:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/crawl4ai-scraper.git
-   cd crawl4ai-scraper
+   git clone https://github.com/YOUR_USERNAME/openpull.git
+   cd openpull
    ```
 
 2. Create a virtual environment:
