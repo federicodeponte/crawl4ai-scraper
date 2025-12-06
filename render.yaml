@@ -2,7 +2,7 @@ services:
   - type: web
     name: openpull-api
     runtime: python
-    buildCommand: pip install -r requirements.txt && playwright install chromium --with-deps
+          buildCommand: pip install -e . && playwright install chromium --with-deps
     startCommand: python -m uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PORT
